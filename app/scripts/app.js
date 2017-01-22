@@ -7,6 +7,7 @@
  * # angularS3App
  *
  * Main module of the application.
+ * exposes 2 angular applications /#!/list - small CMS and /#!/about - frontend about page
  */
 angular
   .module('angularS3App', [
@@ -21,9 +22,9 @@ angular
     $routeProvider
 
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+          templateUrl: 'views/list.html',
+          controller: 'ListCtrl',
+          controllerAs: 'list'
       })
 
       .when('/list', {

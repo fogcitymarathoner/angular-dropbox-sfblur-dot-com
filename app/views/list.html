@@ -1,14 +1,31 @@
 <div class="jumbotron">
-  <h1>LIST APP</h1>
+    <h1>LIST APP</h1>
 </div>
 
 <div ng-controller="ListCtrl">
-<h2>bucket</h2>
-{{ bucket }}
-<h2>folder</h2>
-{{ folder }}
-<table>
-<tr ng-repeat="file in files">
-  <td><a href="https://s3.amazonaws.com/{{ bucket }}/{{file['file']}}">{{ file['file'] }}</a></td><td> <a ng-click="delete($index)">Delete</a></td>
-</tr>
+    <p>Bucket: {{ bucket }}</p>
+
+    <p>Folder: {{ folder }}</p>
+    <pre>Sort by = {{propertyName}}; reverse = {{reverse}}</pre>
+    <hr/>
+    <button ng-click="propertyName = null; reverse = false">Set to unsorted</button>
+    <hr/>
+    <table class="files">
+        <tr>
+            <th>
+                <button ng-click="sortBy('name')">File</button>
+                <span class="sortorder" ng-show="propertyName === 'file'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th>
+                <button ng-click="sortBy('date')">Date</button>
+                <span class="sortorder" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="file in files | orderBy:propertyName:reverse">
+            <td><a href="https://s3.amazonaws.com/{{ bucket }}/{{file['file']}}">{{ file['file'] }}</a></td>
+            <td>{{file['date']}}</a></td>
+            <td><a ng-click="delete($index)">Delete</a></td>
+        </tr>
+    </table>
 </div>

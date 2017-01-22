@@ -1,4 +1,15 @@
 <div class="jumbotron">
-  <h1>ABOUT APP</h1>
+  <h1>Frontend ABOUT Page</h1>
 </div>
 
+
+<div ng-controller="AboutCtrl">
+  <p>Bucket: {{ bucket }}</p>
+
+  <p>Folder: {{ folder }}</p>
+
+  <p>Backend URL: {{ backend_url }}</p>
+
+  <p>Number of Files in S3 folder: {{ files.length }}</p>
+
+</div>

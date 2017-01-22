@@ -81,3 +81,25 @@ body {
     border-bottom: 0;
   }
 }
+
+.files {
+  border-collapse: collapse;
+}
+
+.files th {
+  border-bottom: 1px solid;
+}
+.files td, .files th {
+  border-left: 1px solid;
+  padding: 5px 10px;
+}
+.files td:first-child, .files th:first-child {
+  border-left: none;
+}
+
+.sortorder:after {
+  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}
