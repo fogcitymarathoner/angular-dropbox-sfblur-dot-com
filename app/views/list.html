@@ -2,3 +2,13 @@
   <h1>LIST APP</h1>
 </div>
 
+<div ng-controller="ListCtrl">
+<h2>bucket</h2>
+{{ bucket }}
+<h2>folder</h2>
+{{ folder }}
+<table>
+<tr ng-repeat="file in files">
+  <td><a href="https://s3.amazonaws.com/{{ bucket }}/{{file['file']}}">{{ file['file'] }}</a></td><td> <a ng-click="delete($index)">Delete</a></td>
+</tr>
+</div>
