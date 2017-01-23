@@ -23,7 +23,7 @@ angular.module('angularS3App')
             /*
             delete button call back that calls Flask REST method
              */
-            var file_to_delete = $scope.files[idx];
+            var file_to_delete = $scope.files[idx]['file'];
             var delete_url = 'http://s3.sfblur.com/api/v1/delete?file=' + file_to_delete;
             console.log('Deleting file ' + file_to_delete);
             console.log('  with url' + delete_url);
