@@ -19,4 +19,4 @@ def deploy_to_nginx(mp='/mnt/src/'):
         
     # copy every thing except .git
     # 
-    local('rsync -arhv --delete --exclude ".git" ./dist/* %s' % dest)
+    local('rsync -arhv --delete --exclude ".git" ./dist/ %s' % dest)
